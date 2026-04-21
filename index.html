@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Consumer Insights Hub | Bayer OTC &mdash; Maggiore</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- LOGIN SCREEN -->
+<div id="loginOverlay" class="login-overlay">
+  <div class="login-box">
+    <div class="login-logo">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="24" fill="rgba(66,184,180,0.15)"/><path d="M16 20a8 8 0 1116 0v2H16v-2z" fill="none" stroke="#42b8b4" stroke-width="2"/><rect x="14" y="22" width="20" height="14" rx="3" fill="none" stroke="#42b8b4" stroke-width="2"/><circle cx="24" cy="29" r="2" fill="#42b8b4"/></svg>
+    </div>
+    <h2>Consumer Insights Hub</h2>
+    <p>Bayer OTC US &mdash; Confidential access</p>
+    <form onsubmit="return handleLogin(event)">
+      <input type="text" id="loginUser" placeholder="Username" autocomplete="off" autofocus>
+      <input type="password" id="loginPass" placeholder="Password">
+      <button type="submit" class="login-btn">Sign In</button>
+    </form>
+    <div id="loginError" class="login-error"></div>
+  </div>
+</div>
+<header class="header">
+  <div class="header-inner">
+    <div class="logo-area" onclick="switchPage('home')">
+      <div class="logo-mm"><svg id="Capa_1" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 700 196.1" height="36" width="128">
+  <!-- Generator: Adobe Illustrator 29.3.1, SVG Export Plug-In . SVG Version: 2.1.0 Build 151)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: url(#linear-gradient2);
+      }
+
+      .st1 {
+        fill: none;
+        stroke: #ededed;
+        stroke-miterlimit: 10;
+      }
+
+      .st2 {
+        fill: #fff;
+      }
+
+      .st3 {
+        fill: url(#linear-gradient1);
+      }
+
+      .st4 {
+        fill: #42b8b4;
+      }
+
+      .st5 {
+        fill: url(#linear-gradient7);
+      }
+
+      .st6 {
+        fill: url(#linear-gradient4);
+      }
+
+      .st7 {
+        fill: url(#linear-gradient5);
+      }
+
+      .st8 {
+        fill: url(#linear-gradient3);
+      }
+
+      .st9 {
+        fill: url(#linear-gradient6);
+      }
+
+      .st10 {
+        fill: url(#linear-gradient);
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="85.1" y1="-489.7" x2="49.5" y2="-489.7" gradientTransform="translate(0 -413.8) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#56baa3"/>
+      <stop offset="1" stop-color="#035c98"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient1" x1="145.1" y1="-489.7" x2="109.5" y2="-489.7" gradientTransform="translate(0 -413.8) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#56baa3"/>
+      <stop offset="1" stop-color="#035c98"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient2" x1="296.7" y1="-504.2" x2="286.7" y2="-504.2" gradientTransform="translate(0 -413.8) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#56baa3"/>
+      <stop offset="1" stop-color="#035c98"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient3" x1="409" y1="-482.4" x2="399.1" y2="-482.4" gradientTransform="translate(0 -413.8) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#56baa3"/>
+      <stop offset="1" stop-color="#035c98"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient4" x1="544.5" y1="-482.4" x2="534.6" y2="-482.4" gradientTransform="translate(0 -413.8) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#56baa3"/>
+      <stop offset="1" stop-color="#035c98"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient5" x1="224.7" y1="-489.7" x2="189" y2="-489.7" gradientTransform="translate(0 -413.8) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#56baa3"/>
+      <stop offset="1" stop-color="#035c98"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient6" x1="381.4" y1="-504.2" x2="371.4" y2="-504.2" gradientTransform="translate(0 -413.8) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#56baa3"/>
+      <stop offset="1" stop-color="#035c98"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient7" x1="624.7" y1="-482.4" x2="614.7" y2="-482.4" gradientTransform="translate(0 -413.8) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#56baa3"/>
+      <stop offset="1" stop-color="#035c98"/>
+    </linearGradient>
+  </defs>
+  <rect class="st1" x="523.6" y="20.6" width="155.4" height="155.4"/>
+  <rect class="st1" x="427.6" y="20.6" width="96" height="96"/>
+  <rect class="st1" x="427.6" y="116.6" width="59.4" height="59.4"/>
+  <rect class="st1" x="487" y="139.3" width="36.7" height="36.7"/>
+  <path class="st2" d="M476.2,25.6c23.7,0,43,19.3,43,43s-19.3,43-43,43-43-19.3-43-43,19.3-43,43-43M476.2,20.6c-26.5,0-48,21.5-48,48s21.5,48,48,48,48-21.5,48-48-21.5-48-48-48h0Z"/>
+  <g>
+    <path class="st2" d="M20.9,116.5L54.2,20.6c10.3,27.5,20.6,55,30.9,82.5,9.6-27.5,19.3-55,28.9-82.5,11.9,32,23.9,64,35.8,96h-4.9c-10.2-27.1-20.5-54.2-30.7-81.4-9.7,27.1-19.4,54.2-29.1,81.4-10.2-27.1-20.5-54.2-30.7-81.4l-29,81.3h-4.5Z"/>
+    <path class="st10" d="M54.4,35.2c10.2,27.1,20.5,54.2,30.7,81.4-3.5,0-7,0-10.5.1-8.4-22.5-16.7-45.1-25.1-67.6,1.6-4.7,3.3-9.3,4.9-13.9Z"/>
+    <path class="st4" d="M52.3,103.2"/>
+    <path class="st3" d="M114.4,35.2c10.2,27.1,20.5,54.2,30.7,81.4-3.5,0-7,0-10.5.1-8.4-22.5-16.7-45.1-25.1-67.6,1.6-4.7,3.2-9.3,4.9-13.9Z"/>
+  </g>
+  <g>
+    <path class="st2" d="M300.5,113.4c-5,2-13.7,3.2-18.2,3.2-29.1,0-52.8-21.5-52.8-48s23.6-48,52.8-48,9,.5,13.3,1.6v4.2c-4.3-1.1-8.7-1.7-13.3-1.7-26.7,0-48.3,19.6-48.3,44s21.6,44,48.3,44,9.6-.8,13.9-1.9v-42.4h4.3v45h0Z"/>
+    <path class="st0" d="M296.7,110.8c-1.3.4-2.8.8-4.5,1.2-2,.4-3.8.5-5.4.6,0-14.8-.1-29.5-.1-44.3h10v42.5Z"/>
+  </g>
+  <g>
+    <path class="st8" d="M409,116.6h-9.9c0-32-.1-64-.1-96h10v96Z"/>
+    <path class="st2" d="M414.3,116.6h-5.3c0-32,0-64-.1-96h5.4v96Z"/>
+  </g>
+  <g>
+    <path class="st2" d="M570.7,69.4h.8c14.9,0,26.9-10.8,26.9-24.4s-11.9-24.4-26.9-24.4h-27v96h4.9v-47h16l33.4,47h5.6l-33.7-47.2ZM549.4,65V25.1h22.1c12.2,0,21.9,9,21.9,20s-9.7,20-21.9,20h-22.1Z"/>
+    <path class="st6" d="M544.5,116.6h-9.9c0-32,0-64,0-96h10v96Z"/>
+  </g>
+  <g>
+    <path class="st2" d="M428.7,175.4c0,.1,0,.2-.1.3,0,.1-.2.1-.3.1h-.3c-.1,0-.2,0-.3-.1-.1-.1-.1-.2-.1-.3v-35.4c0-.7.2-1,.5-1s.3.1.5.2c.1.1.3.4.6.7l14.1,19.6,14.1-19.6c.3-.3.5-.6.6-.7s.3-.2.5-.2c.4,0,.5.3.5,1v35.4c0,.1,0,.2-.1.3,0,.1-.2.1-.3.1h-.3c-.1,0-.2,0-.3-.1s-.1-.2-.1-.3v-34.3l-13.3,18.6c-.3.4-.5.7-.8.9-.2.2-.4.3-.5.3s-.3-.1-.5-.3c-.2-.2-.5-.5-.8-.9l-13.3-18.7v34.4h0Z"/>
+    <path class="st2" d="M464.9,175.2c-.1.2-.2.4-.3.5s-.2.1-.4.1h-.4c-.2,0-.3,0-.3-.1s0-.2.1-.4l14.6-34.8c.2-.5.4-.9.5-1.1s.3-.3.4-.3.3.1.4.3.3.5.5,1.1l14.6,34.8c.1.2.1.3.1.4s-.1.2-.3.2h-.3c-.2,0-.3,0-.4-.1s-.2-.2-.3-.5l-14.4-34.4-14.1,34.3Z"/>
+    <path class="st2" d="M500.6,175.7c0,.1-.2.1-.3.1h-.3c-.1,0-.2,0-.3-.1s-.1-.2-.1-.3v-35c0-.3.1-.5.2-.7.1-.1.3-.2.6-.2h7.4c4,0,7,.8,9,2.5,2.1,1.7,3.1,4.2,3.1,7.4s-.8,4.8-2.3,6.4c-1.6,1.6-3.7,2.7-6.3,3.3l10.7,16.1c.2.3.2.5-.2.5h-.4c-.2,0-.3,0-.4-.1,0-.1-.2-.2-.3-.3l-10.9-16.4c-.1-.2-.1-.3-.1-.4s0-.2.1-.2.2-.1.3-.1c1.6-.2,3.1-.7,4.4-1.4,1.3-.7,2.4-1.7,3.2-3s1.2-2.7,1.2-4.4c0-3-1-5.2-2.9-6.6-1.9-1.5-4.7-2.2-8.4-2.2h-6.5c-.1,0-.2,0-.3.1s-.1.2-.1.3v34.3c0,.2-.1.3-.1.4Z"/>
+    <path class="st2" d="M528.7,175.7c0,.1-.2.1-.3.1h-.3c0,0-.2,0-.3-.1s0-.2,0-.3v-35.5c0-.2,0-.3,0-.3,0-.1.2-.1.3-.1h.3c.2,0,.3,0,.3.1s0,.2,0,.3v35.5c0,.1,0,.2,0,.3ZM547.7,139.6c0-.1.3-.1.5-.1h.4c.3,0,.4.1.4.2s0,.2-.2.4l-17.4,17.6,17.7,17.6c.2.2.2.3.2.4s0,.2-.4.2h-.3c-.2,0-.4,0-.5-.1s-.3-.2-.5-.4l-17.2-17.1c-.2-.2-.3-.4-.3-.5s0-.3.3-.5l16.9-17.2c0-.3.3-.5.4-.5Z"/>
+    <path class="st2" d="M572.6,174.7c0,.1,0,.2,0,.3v.3c0,.1,0,.2,0,.3,0,.1-.2.1-.3.1h-16.7c-.3,0-.5-.1-.6-.2s-.2-.4-.2-.7v-34.5c0-.3,0-.5.2-.7,0-.1.3-.2.6-.2h16.1c.2,0,.3,0,.3.1s0,.2,0,.3v.3c0,.1,0,.2,0,.3,0,.1-.2.1-.3.1h-15.6c0,0-.2,0-.3.1s0,.2,0,.3v15.4c0,.1,0,.2,0,.3s.2.1.3.1h14.7c.2,0,.3,0,.3.1s0,.2,0,.3v.3c0,.1,0,.2,0,.3,0,.1-.2.1-.3.1h-14.7c0,0-.2,0-.3.1s0,.2,0,.3v16c0,.1,0,.2,0,.3s.2.1.3.1h16.1c.2,0,.3.1.4.1Z"/>
+    <path class="st2" d="M601.8,140.5c0,.1-.2.1-.3.1h-11.5c0,0-.2,0-.3.1s0,.2,0,.3v34.3c0,.1,0,.2,0,.3,0,.1-.2.1-.3.1h-.3c0,0-.2,0-.3-.1s0-.2,0-.3v-34.3c0-.2,0-.3,0-.3,0-.1-.2-.1-.3-.1h-11.4c0,0-.2,0-.3-.1s0-.2,0-.3v-.3c0-.2,0-.3,0-.3,0-.1.2-.1.3-.1h24.8c.2,0,.3,0,.3.1s0,.2,0,.3v.3c-.1,0-.1.2-.1.3Z"/>
+    <path class="st2" d="M607.9,175.7c0,.1-.2.1-.3.1h-.3c0,0-.2,0-.3-.1s0-.2,0-.3v-35.5c0-.2,0-.3,0-.3,0-.1.2-.1.3-.1h.3c.2,0,.3,0,.3.1s0,.2,0,.3v35.5c0,.1,0,.2,0,.3Z"/>
+    <path class="st2" d="M641.4,139.5c0-.1.2-.1.3-.1h.3c.2,0,.3,0,.3.1s0,.2,0,.3v35.4c0,.6-.2.9-.5.9s-.3-.1-.4-.2c-.2-.2-.3-.4-.5-.6l-23-34.2v34.1c0,.1,0,.2,0,.3,0,.1-.2.1-.3.1h-.3c0,0-.2,0-.3-.1s0-.2,0-.3v-35.4c0-.6.2-.9.5-.9s.3.1.4.2c.2.2.3.4.5.6l23,34.2v-34.1c0-.1,0-.2,0-.3Z"/>
+    <path class="st2" d="M678.9,172.5c0,.1-.3.3-.5.5-1.9,1.1-3.9,1.9-5.8,2.5-2,.6-4,.8-6.1.8-3.3,0-6.2-.8-8.8-2.3s-4.7-3.6-6.2-6.4-2.3-6-2.3-9.7.7-6.8,2.1-9.7,3.4-5.1,6-6.7,5.6-2.4,9-2.4,4.4.4,6.5,1.2c2.1.8,3.8,1.9,5.3,3.2.2.2.3.3.3.4s0,.2,0,.4v.2c-.2.1-.3.2-.4.2s-.2,0-.3-.1,0-.1-.2-.2c-1.4-1.2-3.1-2.3-5.1-3-2-.8-4-1.2-6.1-1.2-3.2,0-6,.8-8.4,2.3s-4.3,3.6-5.6,6.3c-1.3,2.7-1.9,5.7-1.9,9.1s.7,6.3,2.1,8.9c1.4,2.6,3.3,4.7,5.8,6.1,2.5,1.5,5.3,2.2,8.4,2.2s3.8-.3,5.7-.8,3.6-1.3,5.1-2.2c.2-.1.4-.3.5-.4s0-.3,0-.6v-10.9c0-.2,0-.3,0-.3,0-.1.2-.1.3-.1h.3c.2,0,.3,0,.3.1s0,.2,0,.3v11.5c0,.4,0,.6-.2.8Z"/>
+  </g>
+  <g>
+    <path class="st2" d="M160.2,116.5l33.6-96c11.9,32,23.9,64,35.8,96h-4.9c-10.2-27.1-20.5-54.2-30.7-81.4-9.7,27.1-19.4,54.2-29.1,81.4h-4.7Z"/>
+    <path class="st7" d="M193.9,35.2c10.2,27.1,20.5,54.2,30.7,81.4-3.5,0-7,0-10.5.1-8.4-22.5-16.7-45.1-25.1-67.6,1.6-4.7,3.3-9.3,4.9-13.9Z"/>
+  </g>
+  <g>
+    <path class="st2" d="M385.2,113.4c-5,2-13.7,3.2-18.2,3.2-29.1,0-52.8-21.5-52.8-48s23.6-48,52.8-48,9,.5,13.3,1.6v4.2c-4.3-1.1-8.7-1.7-13.3-1.7-26.7,0-48.3,19.6-48.3,44s21.6,44,48.3,44,9.6-.8,13.9-1.9v-42.4h4.3v45h0Z"/>
+    <path class="st9" d="M381.4,110.8c-1.3.4-2.8.8-4.5,1.2-2,.4-3.8.5-5.4.6,0-14.8-.1-29.5-.1-44.3h10v42.5Z"/>
+  </g>
+  <g>
+    <path class="st2" d="M629.9,112.1h49.2v4.5h-54.1V20.6h54.1v4.5h-49c0,13.4-.2,26.8-.2,40.2h26.6v4.5h-26.6v42.3h0Z"/>
+    <path class="st5" d="M624.7,116.5h-9.9c0-31.9,0-63.9,0-95.8h9.9c0,31.9,0,63.9,0,95.8Z"/>
+  </g>
+</svg></div>
+      <div class="logo-divider"></div>
+      <div class="logo-text">
+        <h1>Consumer Insights Hub</h1>
+        <span>Bayer US OTC</span>
+      </div>
+    </div>
+    <div class="header-nav">
+      <button class="nav-btn active" data-page="home" onclick="switchPage('home')">The Hub</button>
+      <button class="nav-btn" data-page="sl" onclick="switchPage('sl')">Social Listening</button>
+      <button class="nav-btn" data-page="iep" onclick="switchPage('iep')">IEP</button>
+    </div>
+  </div>
+</header>
+
+<!-- ====== PAGE: THE HUB ====== -->
+<div id="page-home" class="page-view active">
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-top">
+        <div>
+          <div class="hero-title">The Hub <em>in Numbers</em></div>
+          <div class="hero-subtitle">Bayer US OTC Consumer Intelligence &mdash; Powered by Maggiore</div>
+        </div>
+        <div class="stats-row" id="statsRow"></div>
+      </div>
+    </div>
+  </section>
+  <section class="dark-section">
+    <div class="dark-inner">
+      <div class="section-label">Overview</div>
+      <div class="section-heading">Projects by Category</div>
+      <div id="homeOV"></div>
+    </div>
+  </section>
+  <section class="insights-section" id="homeInsights">
+    <div class="insights-inner reveal">
+      <div class="section-label">Spotlight</div>
+      <div class="section-heading">Key Insights</div>
+      <div class="cat-tabs" id="homeTabs"></div>
+      <div class="insights-grid" id="homeIG"></div>
+      <div id="homeBD"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ====== PAGE: SOCIAL LISTENING ====== -->
+<div id="page-sl" class="page-view">
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-top">
+        <div>
+          <div class="hero-title">Social <em>Listening</em></div>
+          <div class="hero-subtitle">Consumer voice intelligence across digital conversations</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="dark-section">
+    <div class="dark-inner">
+      <div class="method-box" style="border-top: 3px solid var(--accent-cyan);">
+        <h3>What is Social Listening?</h3>
+        <p><strong style="color: var(--text-white);">Social Listening</strong> is the practice of monitoring digital conversations across social media, forums, search engines, and review platforms to understand what consumers are saying about brands, categories, and health conditions. It transforms unstructured online chatter into actionable consumer insights.</p>
+        <p>By analyzing mentions, sentiment, search trends, and e-commerce reviews, we uncover purchase drivers, pain points, unmet needs, and emerging trends that inform brand strategy.</p>
+        <div class="metric-row">
+          <div class="m-card"><div class="mn">Mentions</div><div class="md">Social media conversations, forum discussions, and news mentions tracked in real time.</div></div>
+          <div class="m-card"><div class="mn">Search Behavior</div><div class="md">Google Trends, keyword volumes, and search intent analysis revealing consumer demand signals.</div></div>
+          <div class="m-card"><div class="mn">Reviews</div><div class="md">Amazon, Walmart, and retailer reviews analyzed for product perception and competitive positioning.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="dark-section" style="padding-top: 0;">
+    <div class="dark-inner">
+      <div class="section-label">Overview</div>
+      <div class="section-heading">SL Projects by Category</div>
+      <div class="cat-overview-grid" id="slOV"></div>
+    </div>
+  </section>
+  <section class="insights-section">
+    <div class="insights-inner">
+      <div class="section-label">Spotlight</div>
+      <div class="section-heading">Key Insights by Category</div>
+      <div class="cat-tabs" id="slTabs"></div>
+      <div class="insights-grid" id="slIG"></div>
+      <div id="slBD"></div>
+    </div>
+  </section>
+  <div class="transition-fade"></div>
+  <div class="lib-wrap">
+    <div class="lib-section" id="slLib">
+      <h2 class="lib-title">Social Listening Library</h2>
+      <div class="controls">
+        <div class="search-bar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="slSearch" placeholder="Search projects, brands, themes...">
+        </div>
+        <div class="filter-row">
+          <div class="filter-group"><label>Year</label><select id="slYear"><option value="">All Years</option></select></div>
+          <div class="filter-group"><label>Category</label><select id="slCat"><option value="">All Categories</option></select></div>
+          <div class="filter-group"><label>Brand</label><select id="slBrand"><option value="">All Brands</option></select></div>
+          <button class="clear-btn" onclick="clearSL()">Clear Filters</button>
+          <div class="view-toggle">
+            <button id="slGBtn" class="active" onclick="setSLV('grid')">Grid</button>
+            <button id="slLBtn" onclick="setSLV('list')">List</button>
+          </div>
+          <span class="results-count" id="slCount"></span>
+        </div>
+      </div>
+      <div id="slCards"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== PAGE: IEP ====== -->
+<div id="page-iep" class="page-view">
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-top">
+        <div>
+          <div class="hero-title">Iterative <em>Experiment Platform</em></div>
+          <div class="hero-subtitle">Testing real consumer behavior through Meta landing pages</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="dark-section">
+    <div class="dark-inner">
+      <div class="method-box" style="border-top: 3px solid var(--accent-iep);">
+        <h3>What is IEP?</h3>
+        <p>The <strong style="color: var(--text-white);">Iterative Experiment Platform</strong> is a dynamic testing platform that simulates a product launch by transforming concepts into Meta (Facebook &amp; Instagram) landing pages. It evaluates a product&rsquo;s ability to grab attention, engage consumers, and drive action through real-world digital behavior.</p>
+        <p>Each experiment goes through multiple rounds of testing, progressively refining claims, visuals, and targeting to find the optimal messaging strategy.</p>
+        <div class="metric-row">
+          <div class="m-card iep"><div class="mn">Stopping Power</div><div class="md">How effectively a creative catches consumer attention &mdash; measured by Banner Ad Click-Through Rate.</div></div>
+          <div class="m-card iep"><div class="mn">Closing Power</div><div class="md">The stage where the shopper places the product in cart &mdash; measured by Add to Cart CTR.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="dark-section" style="padding-top: 0;">
+    <div class="dark-inner">
+      <div class="section-label">Overview</div>
+      <div class="section-heading">IEP Experiments by Category</div>
+      <div class="cat-overview-grid" id="iepOV"></div>
+    </div>
+  </section>
+  <section class="insights-section">
+    <div class="insights-inner">
+      <div class="section-label">Spotlight</div>
+      <div class="section-heading">IEP Insights &amp; Cross-Brand Patterns</div>
+      <div class="pat-grid" id="iepPat"></div>
+      <div id="iepBI"></div>
+    </div>
+  </section>
+  <div class="transition-fade"></div>
+  <div class="iep-lib-white">
+    <div class="lib-section">
+      <h2 class="lib-title">IEP Experiment Library</h2>
+      <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;"><span id="iepCount">82</span> experiments across 15 brands</div>
+      <div class="controls">
+        <div class="search-bar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="iepSearchInput" placeholder="Search experiments, brands, claims...">
+        </div>
+      </div>
+      <div class="iep-frow" id="iepFR"></div>
+      <div class="projects-grid" id="iepLG"></div>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
