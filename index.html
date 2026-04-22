@@ -7,22 +7,14 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- LOGIN SCREEN -->
-<div id="loginOverlay" class="login-overlay">
-  <div class="login-box">
-    <div class="login-logo">
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="24" fill="rgba(66,184,180,0.15)"/><path d="M16 20a8 8 0 1116 0v2H16v-2z" fill="none" stroke="#42b8b4" stroke-width="2"/><rect x="14" y="22" width="20" height="14" rx="3" fill="none" stroke="#42b8b4" stroke-width="2"/><circle cx="24" cy="29" r="2" fill="#42b8b4"/></svg>
-    </div>
-    <h2>Consumer Insights Hub</h2>
-    <p>Bayer OTC US &mdash; Confidential access</p>
-    <form onsubmit="return handleLogin(event)">
-      <input type="text" id="loginUser" placeholder="Username" autocomplete="off" autofocus>
-      <input type="password" id="loginPass" placeholder="Password">
-      <button type="submit" class="login-btn">Sign In</button>
-    </form>
-    <div id="loginError" class="login-error"></div>
-  </div>
-</div>
+
+  <!-- ══════════ INTEL AUTH ══════════ -->
+  <script>
+    const PROJECT = "maggiore-hub-bayer";
+  </script>
+  <script src="/core/login.js"></script>
+
+
 <header class="header">
   <div class="header-inner">
     <div class="logo-area" onclick="switchPage('home')">
