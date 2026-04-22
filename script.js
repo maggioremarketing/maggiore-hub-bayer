@@ -16,30 +16,8 @@ const iepPatterns = ["Specific benefit claims outperform generic category claims
 
 
 
-// ===== LOGIN =====
-const _h='d62e1c294189ca3ba7b7190070222ef984b851ddaf4ca5c731dd4743ccafd997';
-async function _sha(s){const e=new TextEncoder().encode(s);const h=await crypto.subtle.digest('SHA-256',e);return Array.from(new Uint8Array(h)).map(b=>b.toString(16).padStart(2,'0')).join('');}
-function handleLogin(e){
-  e.preventDefault();
-  const u=document.getElementById('loginUser').value.trim();
-  const p=document.getElementById('loginPass').value;
-  _sha(p).then(h=>{
-    if(u==='bayer'&&h===_h){
-      document.getElementById('loginOverlay').classList.add('hidden');
-      sessionStorage.setItem('hub_auth','1');
-    } else {
-      document.getElementById('loginError').textContent='Invalid username or password';
-      document.getElementById('loginPass').value='';
-    }
-  });
-  return false;
-}
-if(sessionStorage.getItem('hub_auth')==='1'){document.getElementById('loginOverlay').classList.add('hidden');}
 
 // ===== GOOGLE SHEETS SYNC =====
-const GSHEET_BASE = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQnBn6u5fFx9rBg6fkRHO7xC7GPztVRRMO3JNwogo1KUT8Mn76yYzoq6YJtjs4nlqPkkIJAwKtwo_qr/pub?output=csv';
-const GSHEET_IEP_URL = GSHEET_BASE + '&gid=1311916965';
-const GSHEET_SL_URL  = GSHEET_BASE + '&gid=0';
 const BRAND_MAP_REV = {'MiraLAX':'Miralax','Shopper':'Shoppers'};
 
 function parseCSV(text){
@@ -58,19 +36,12 @@ function parseCSV(text){
   });
 }
 
-async function fetchCSV(url){
-  // Tenta fetch direto (funciona quando hospedado em servidor web)
+// fetchCSV now proxied via intel fetchText
+async function fetchCSV(sourceKey){
   try{
-    const res=await fetch(url);
-    if(res.ok)return await res.text();
-  }catch(e){}
-  // Fallback: CORS proxy (funciona localmente via file://)
-  try{
-    const proxy='https://api.allorigins.win/raw?url='+encodeURIComponent(url);
-    const res=await fetch(proxy);
-    if(res.ok)return await res.text();
-  }catch(e){}
-  return null;
+    const csv = await fetchText(sourceKey);
+    return csv || null;
+  }catch(e){ return null; }
 }
 
 function applyIEPSync(rows){
@@ -113,7 +84,7 @@ function applySLSync(rows){
 
 async function syncFromGSheet(){
   try{
-    const [iepCSV, slCSV] = await Promise.all([fetchCSV(GSHEET_IEP_URL), fetchCSV(GSHEET_SL_URL)]);
+    const [iepCSV, slCSV] = await Promise.all([fetchCSV('gsheet-iep'), fetchCSV('gsheet-sl')]);
     let synced=false;
     if(iepCSV){applyIEPSync(parseCSV(iepCSV));synced=true;}
     if(slCSV){applySLSync(parseCSV(slCSV));synced=true;}
@@ -718,10 +689,12 @@ function renderIEPLib(){
 }
 
 // ===== INIT =====
-initTooltip();
-initHome();initSL();initIEP();
-initReveal();
-syncFromGSheet();
+window.intelOnLogin = function(user) {
+  initTooltip();
+  initHome(); initSL(); initIEP();
+  initReveal();
+  syncFromGSheet();
+};
 document.getElementById('slSearch').addEventListener('input',filterSL);
 document.getElementById('slYear').addEventListener('change',filterSL);
 document.getElementById('slCat').addEventListener('change',filterSL);
